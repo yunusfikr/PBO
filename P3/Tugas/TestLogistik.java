@@ -1,27 +1,44 @@
 package P3.Tugas;
 
+import java.util.Scanner;
+
 public class TestLogistik {
     public static void main(String[] args) {
-        Kontainer kontainerAlfa = new Kontainer("REQ-9988", "PT. Maju Bersama", 5000);
+        Scanner input = new Scanner(System.in);
+
+        Kontainer kontainerAlfa = new Kontainer(
+            "REQ-9988",
+            "PT. Maju Bersama",
+            5000
+        );
 
         System.out.println("Nama Pemilik Kontainer: " + kontainerAlfa.getNamaPemilik());
         System.out.println("Kapasitas Maksimal: " + kontainerAlfa.getKapasitasMaksimal() + " kg");
 
-        System.out.println("\nMemassukkan muatan baru seberat 6.000 kg...");
-        kontainerAlfa.tambahMuatan(6000);
-        System.out.println("Berat muatan ini: " + kontainerAlfa.getBeratMuatanSaatIni() + " kg");
+        System.out.print("\nMasukkan berat muatan yang ingin ditambahkan: ");
+        int tambah = input.nextInt();
 
-        System.out.println("\nMemassukkan muatan baru seberat 4.000 kg...");
-        kontainerAlfa.tambahMuatan(4000);
-        System.out.println("Berat muatan ini: " + kontainerAlfa.getBeratMuatanSaatIni() + " kg");
+        kontainerAlfa.tambahMuatan(tambah);
 
-        System.out.println("\nMemassukkan muatan baru seberat 500 kg...");
-        kontainerAlfa.tambahMuatan(500);
-        System.out.println("Berat muatan ini: " + kontainerAlfa.getBeratMuatanSaatIni() + " kg");
+        System.out.println("Berat muatan saat ini: "
+                + kontainerAlfa.getBeratMuatanSaatIni() + " kg");
 
-        System.out.println("\nMemassukkan muatan baru seberat 1.500 kg...");
-        kontainerAlfa.tambahMuatan(1500);
-        System.out.println("Berat muatan ini: " + kontainerAlfa.getBeratMuatanSaatIni() + " kg");
-        
+        System.out.print("\nMasukkan berat muatan yang ingin ditambahkan lagi: ");
+        tambah = input.nextInt();
+
+        kontainerAlfa.tambahMuatan(tambah);
+
+        System.out.println("Berat muatan saat ini: "
+                + kontainerAlfa.getBeratMuatanSaatIni() + " kg");
+
+        System.out.print("\nMasukkan berat muatan yang ingin dibongkar: ");
+        int turun = input.nextInt();
+
+        kontainerAlfa.turunkanMuatan(turun);
+
+        System.out.println("Berat muatan saat ini: "
+                + kontainerAlfa.getBeratMuatanSaatIni() + " kg");
+
+        input.close();
     }
 }
